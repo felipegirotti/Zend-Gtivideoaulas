@@ -24,14 +24,22 @@
         <moduleDirectory moduleName="default">
           <apisDirectory enabled="false"/>
           <configsDirectory enabled="false"/>
-          <controllersDirectory/>
+          <controllersDirectory>
+            <controllerFile controllerName="Index">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+          </controllersDirectory>
           <formsDirectory/>
           <layoutsDirectory enabled="false">
             <layoutScriptsDirectory enabled="false"/>
           </layoutsDirectory>
           <modelsDirectory/>
           <viewsDirectory>
-            <viewScriptsDirectory/>
+            <viewScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+            </viewScriptsDirectory>
             <viewHelpersDirectory/>
             <viewFiltersDirectory/>
           </viewsDirectory>
@@ -39,14 +47,22 @@
         <moduleDirectory moduleName="blog">
           <apisDirectory enabled="false"/>
           <configsDirectory enabled="false"/>
-          <controllersDirectory/>
+          <controllersDirectory>
+            <controllerFile controllerName="Index">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+          </controllersDirectory>
           <formsDirectory/>
           <layoutsDirectory enabled="false">
             <layoutScriptsDirectory enabled="false"/>
           </layoutsDirectory>
           <modelsDirectory/>
           <viewsDirectory>
-            <viewScriptsDirectory/>
+            <viewScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+            </viewScriptsDirectory>
             <viewHelpersDirectory/>
             <viewFiltersDirectory/>
           </viewsDirectory>
