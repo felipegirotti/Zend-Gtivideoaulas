@@ -1,0 +1,9 @@
+<?
+foreach($this->paginator as $pagi){
+    echo "{$pagi['titulo']}<hr>";
+    
+}
+
+?>
+<br /><br />
+<?=$this->paginator;//$this->paginationControl($this->paginator, 'Sliding', 'paginator_control.phtml')?>

@@ -1,0 +1,45 @@
+<?php
+
+/* Srolling:
+ *  All = Todos 
+ *  Elastic = Igual do google
+ *  Jumping = o numero vai avançando para o fim
+ *  Sliding = igual o Yahoo (centraliza a página)
+ * 
+ * $this->first = primeira página
+ * $this->firstItemNumber = N° absoluto do primeiro item na página atual
+ * $this->firstPageInRange = Primeira página no internavo retornado pelo estilo de srolling
+ * $this->current = página atual
+ * $this->last = última página
+ * $this->lastItemNumber = Nº absoluto do último item nesta página
+ * $this->lastPageInRange = última página no internavo retornado pelo estilo de srolling
+ * $this->next = próxima página
+ * $this->pageCount = número de páginas
+ * $this->pagesInRange = Array de páginas retornado pelo estilo de scrolling
+ * $this->previuos = página anterior
+ * $this->totalItemCount = Número Total de itens
+ */
+
+if($this->pageCount):?>
+<div id="paginator">
+<?    if(isset($this->previous)):?>
+        <a href="<?=$this->url(array('page'=>$this->first))?>">Primeira</a>
+    <?endif;
+    if(isset($this->previous)):?>
+        <a href="<?=$this->url(array('page'=>$this->previous))?>"> < </a>
+    <?endif;
+    foreach($this->pagesInRange as $page):
+        if($this->current == $page):?>
+            <strong class="current"><?=$page?></strong>
+        <?else:?>
+            <a href="/post/?page=<?=$page?>"><?=$page?></a>
+        <?endif;?>
+    <?endforeach;
+    if(isset($this->next)):?>
+        <a href="<?=$this->url(array('page'=>$this->next))?>"> > </a>
+    <?endif;
+    if(isset($this->next)):?>
+        <a href="<?=$this->url(array('page'=>$this->last))?>"> Última </a>
+    <?endif;?>
+</div>      
+<?endif;?>
