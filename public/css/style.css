@@ -1,0 +1,10 @@
+*{padding: 0; margin: 0; font-family: 'Verdana'; color: #666666;}
+#page{
+    padding:10px;
+}
+#header{
+    padding:5px;
+}
+#content{
+    padding:10px 0;
+}
