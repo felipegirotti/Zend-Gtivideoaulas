@@ -11,13 +11,18 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$view->Doctype('XHTML1_TRANSITIONAL');
 		
 		//Title
-		$this->view->headTitle('Projeto Zend Framework')->setSeparator(' | ');
+		$view->headTitle('Projeto Zend Framework')->setSeparator(' | ');
 		
 		//Css
-		$this->view->headLink()->prependStylesheet('/css/style.css');
+		$view->headLink()->prependStylesheet('/css/style.css');
 		
 		//Js
-		$this->view->headScript()->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+		$view->headScript()->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+                
+                //ADICIONADO O PAGINATOR_CONTROLS.PHTML PARA TODOS OS MODULOS
+                $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
+                $viewRenderer->initView();
+                $viewRenderer->view->addBasePath(APPLICATION_PATH . '/layouts/');
                 
                 //SESSION
                 Zend_Session::start();
