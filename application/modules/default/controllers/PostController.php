@@ -5,7 +5,26 @@ class PostController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        /* Initialize action controller here */      
+       $acl = new Zend_Acl();
+       $visitante = new Zend_Acl_Role('visitante');
+       $acl->addRole($visitante)           
+           ->addRole(new Zend_Acl_Role('admin'), 'visitante')
+           ->addRole(new Zend_Acl_Role('editor'), 'admin')
+           ->add(new Zend_Acl_Resource('index'))
+           ->add(new Zend_Acl_Resource('add'))
+           ->add(new Zend_Acl_Resource('ver'))
+           ->allow('visitante',array('index','ver'))
+           ->allow('admin','add')
+           ->deny('editor','add');
+       
+       $action = $this->_request->getActionName();
+       if($acl->isAllowed('editor', $action)){
+           echo 'Sim';
+       }else{
+           echo 'Não';
+       }
+       
     }
 
     public function indexAction()
@@ -23,7 +42,7 @@ class PostController extends Zend_Controller_Action
         $this->view->paginator = $paginator;
     }
 
-	public function addAction()
+    public function addAction()
     {
  
         $form = new Default_Form_Post();
@@ -55,8 +74,22 @@ class PostController extends Zend_Controller_Action
         $this->view->form = $form;
     }
 
+    public function verAction()
+    {
+        // action body
+    }
+
+    public function editorAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
 
 
 
